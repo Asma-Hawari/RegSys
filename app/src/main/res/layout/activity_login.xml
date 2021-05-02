@@ -9,7 +9,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/scr"
+        android:background="@color/grayLight0"
         tools:layout_editor_absoluteX="157dp"
         tools:layout_editor_absoluteY="288dp">
 
@@ -20,7 +20,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="20dp"
             android:paddingTop="10dp"
-            app:srcCompat="@drawable/course_online_online_course_icon_online_learning_icon_png_512_512" />
+            app:srcCompat="@drawable/splash" />
 
         <EditText
             android:id="@+id/email"
@@ -33,7 +33,9 @@
             android:ems="10"
             android:hint="Email"
             android:inputType="textEmailAddress"
-            android:textColor="@color/white" />
+            android:textSize="16sp"
+            android:focusedByDefault="true"
+            android:textColor="@color/grayBold" />
 
         <EditText
             android:id="@+id/password"
@@ -45,7 +47,8 @@
             android:hint="Password"
             android:inputType="textPassword"
             android:paddingTop="20dp"
-            android:textColor="@color/white" />
+            android:textSize="16sp"
+            android:textColor="@color/grayBold" />
 
         <Button
             android:id="@+id/btn_login"

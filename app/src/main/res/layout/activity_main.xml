@@ -13,16 +13,6 @@
         android:id="@+id/include"
         layout="@layout/content_main" />
 
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:background="#673AB7"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:layout_constraintTop_toTopOf="parent" />
-
         <TextView
             android:id="@+id/textView5"
             android:layout_width="wrap_content"
@@ -72,6 +62,8 @@
                         android:id="@+id/studentsImageView"
                         android:layout_width="74dp"
                         android:layout_height="75dp"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
                         app:srcCompat="@drawable/images__1_" />
@@ -104,6 +96,8 @@
                         android:id="@+id/instrucImageView"
                         android:layout_width="74dp"
                         android:layout_height="75dp"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
                         app:srcCompat="@drawable/images" />
@@ -147,6 +141,8 @@
                         android:id="@+id/coursesimageView"
                         android:layout_width="74dp"
                         android:layout_height="75dp"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
                         app:srcCompat="@drawable/course_online_online_course_icon_online_learning_icon_png_512_512" />
@@ -179,6 +175,8 @@
                         android:id="@+id/sectionsimageView"
                         android:layout_width="74dp"
                         android:layout_height="75dp"
+                        android:clickable="true"
+                        android:focusable="true"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="15dp"
                         app:srcCompat="@drawable/pie_chart_graph_512" />
