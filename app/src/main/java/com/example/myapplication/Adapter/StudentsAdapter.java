@@ -11,12 +11,14 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.myapplication.DisplayStudents;
 import com.example.myapplication.Model.StudentModel;
 import com.example.myapplication.R;
+import com.example.myapplication.Utils.DatabaseHandler;
 
 import java.util.List;
 
 public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHolder> {
 
     private List<StudentModel> studentModel;
+    private DatabaseHandler db;
     private DisplayStudents displayStudentsActivity;
 
     /**
@@ -38,19 +40,10 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHo
         }
     }
 
-
-    /*public StudentsAdapter( DisplayStudents displayStudentsActivity) {
-        this.displayStudentsActivity = displayStudentsActivity;
-    }*/
-    /**
-     * Initialize the dataset of the Adapter.
-     *
-     * @param studentModel List<StudentModel> containing the data to populate views to be used
-     * by RecyclerView.
-     */
-
-    public StudentsAdapter(DisplayStudents displayStudentsActivity , List<StudentModel> studentModel) {
-        this.studentModel = studentModel;
+    public StudentsAdapter(
+            DatabaseHandler db,
+            DisplayStudents displayStudentsActivity) {
+        this.db = db;
         this.displayStudentsActivity = displayStudentsActivity;
     }
 
