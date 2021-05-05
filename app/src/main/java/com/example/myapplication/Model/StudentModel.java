@@ -6,31 +6,38 @@ public class StudentModel {
     private int id;
     private String first_name;
     private String last_name;
-    private int reg_year;
+    private String reg_year;
     private String gender;
     private String mobile;
     private String address;
     //private ArrayList enrollment;
 
+    public StudentModel(){
+        this.first_name = "";
+        this.last_name = "";
+        this.gender = "" ;
+        this.mobile = "";
+        this.address = "";
+    }
 
-    public StudentModel(int id, String first_name, String last_name, int reg_year, String gender, String mobile, String address) {
+    public StudentModel(int id, String first_name, String last_name, String gender, String mobile, String address) {
         this.id = id;
         this.first_name = first_name;
         this.last_name = last_name;
-        this.reg_year = reg_year;
-        this.gender = gender;
+        //this.reg_year = reg_year;
+        this.gender = gender ;
         this.mobile = mobile;
         this.address = address;
     }
-    public StudentModel(){
-        this.id = 0;
-        this.first_name = "Asma";
-        this.last_name = "Hawari";
-        this.reg_year = 2020;
-        this.gender = "female";
-        this.mobile = "0988898989";
-        this.address = "AL Muhajreen";
-    }
+//    public StudentModel(){
+//        this.id = 0;
+//        this.first_name = "Asma";
+//        this.last_name = "Hawari";
+//        this.reg_year = 2020;
+//        this.gender = "female";
+//        this.mobile = "0988898989";
+//        this.address = "AL Muhajreen";
+//    }
 
     public int getId() {
         return id;
@@ -56,11 +63,11 @@ public class StudentModel {
         this.last_name = last_name;
     }
 
-    public int getReg_year() {
+    public String getReg_year() {
         return reg_year;
     }
 
-    public void setReg_year(int reg_year) {
+    public void setReg_year(String reg_year) {
         this.reg_year = reg_year;
     }
 

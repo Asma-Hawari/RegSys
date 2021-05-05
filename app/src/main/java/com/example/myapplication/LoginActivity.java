@@ -50,7 +50,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private RequestQueue mRequestQueue;
     private StringRequest mStringRequest;
-    private String url = "https://run.mocky.io/v3/ac5ba1c8-cde9-495c-8e6b-cdeb608399d6";
+    private String url = "http://free-learn.net/api/login";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

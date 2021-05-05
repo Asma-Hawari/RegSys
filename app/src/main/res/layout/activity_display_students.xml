@@ -19,11 +19,19 @@
             android:layout_centerHorizontal="true">
         </com.google.android.material.textview.MaterialTextView>
 
+        <SearchView
+            android:id="@+id/search_view"
+            android:layout_below="@id/textr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:queryHint="Search student here"
+            android:iconifiedByDefault="false"
+            ></SearchView>
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/students"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textr"
+            android:layout_below="@id/search_view"
             android:nestedScrollingEnabled="true"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager">
         </androidx.recyclerview.widget.RecyclerView>

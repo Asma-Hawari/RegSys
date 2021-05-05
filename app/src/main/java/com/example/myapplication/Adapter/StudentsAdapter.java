@@ -3,6 +3,8 @@ package com.example.myapplication.Adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,11 +15,16 @@ import com.example.myapplication.Model.StudentModel;
 import com.example.myapplication.R;
 
 import java.util.List;
+import java.util.ArrayList;
 
-public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHolder> {
+public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHolder> implements Filterable {
 
     private List<StudentModel> studentModel;
     private DisplayStudents displayStudentsActivity;
+    private List<StudentModel> mFilteredList;
+    public MyFilter mFilter;
+
+
 
     /**
      * Provide a reference to the type of views that you are using
@@ -52,6 +59,7 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHo
     public StudentsAdapter(DisplayStudents displayStudentsActivity , List<StudentModel> studentModel) {
         this.studentModel = studentModel;
         this.displayStudentsActivity = displayStudentsActivity;
+        this.mFilteredList = new ArrayList<StudentModel>();
     }
 
     @NonNull
@@ -77,6 +85,60 @@ public class StudentsAdapter extends RecyclerView.Adapter<StudentsAdapter.ViewHo
     @Override
     public int getItemCount() {
         return studentModel.size();
+    }
+
+    @Override
+    public Filter getFilter() {
+        if (mFilter == null){
+            mFilteredList.clear();
+            mFilteredList.addAll(this.studentModel);
+            mFilter = new StudentsAdapter.MyFilter(this,mFilteredList);
+        }
+        return mFilter;
+    }
+    private static class MyFilter extends Filter {
+
+        private final StudentsAdapter myAdapter;
+        private final List<StudentModel> originalList;
+        private final List<StudentModel> filteredList;
+
+        private MyFilter(StudentsAdapter myAdapter, List<StudentModel> originalList) {
+            this.myAdapter = myAdapter;
+            this.originalList = originalList;
+            this.filteredList = new ArrayList<StudentModel>();
+        }
+
+        @Override
+        protected FilterResults performFiltering(CharSequence charSequence) {
+
+            filteredList.clear();
+            final FilterResults results = new FilterResults();
+            if (charSequence.length() == 0){
+                filteredList.addAll(originalList);
+            }else {
+                final String filterPattern = charSequence.toString().toLowerCase().trim();
+                for ( StudentModel student : originalList){
+                    String fullName = student.getFirst_name().toLowerCase() + " " + student.getLast_name().toLowerCase();
+                    if (fullName.contains(filterPattern)){
+                        filteredList.add(student);
+                    }
+                }
+            }
+
+            results.values = filteredList;
+            results.count = filteredList.size();
+            return results;
+
+        }
+
+        @Override
+        protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+
+            myAdapter.studentModel.clear();
+            myAdapter.studentModel.addAll((ArrayList<StudentModel>)filterResults.values);
+            myAdapter.notifyDataSetChanged();
+
+        }
     }
 
 }
